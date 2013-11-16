@@ -1,0 +1,45 @@
+@import "custommixins"
+
+/* =========================================================================
+/* ====== _VARIABLES & DEFINITIONS
+/* =======================================================================*/
+
+
+/* COLORS */
+
+$color-main: #000;
+$color-secondary: #000;
+$color-headings: #000;
+$color-paragraph: #000;
+$color-link: #000;
+$color-link-hover: #000;
+
+
+/* FONTS */
+
+$font-main: 'Helvetica', Arial, sans-serif;
+$font-secondary: 'Helvetica', Arial, sans-serif;
+
+
+/* BUTTONS */
+
+@mixin btn-primary {}
+
+@mixin btn-secondary {}
+
+@mixin btn-checkout {}
+
+
+/* GRADIENTS */
+
+@mixin gradient-main {
+    @include gradient(color, color);
+}
+
+@mixin gradient-secondary {
+    @include gradient(color, color);
+}
+
+@mixin gradient-hover {
+    @include gradient(color, color);
+}
