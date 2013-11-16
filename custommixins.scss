@@ -1,11 +1,34 @@
-/* Truncate Text */
+/* =========================================
+
+    Custom SASS Mixins
+
+    Author:     Ross Dallaire
+    Twitter:    @rdallaire
+    Website:    http://rdallaire.com
+    _____
+
+    Table of Contents
+
+    Truncate Text         truncate
+    Box Shadow            box-shadow(top,left,blur,color,inset);
+    Linear Gradient       gradient(color, color);
+    Border Radius         radius(size);
+    Hide Text             hidetext
+    Opacity               opacity(value);
+    Text Shadow           text-shadow(x, y, blur, color);
+    Transition            transition(value, length, easing);
+
+/* ========================================= */
+
+
+/* TRUNCATE TEXT */
 @mixin truncate {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-/* Box Shadow */
+/* BOX SHADOW */
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
     @if $inset {
         -webkit-box-shadow:inset $top $left $blur $color;
@@ -18,7 +41,7 @@
     }
 }
 
-/* Linear Gradient */
+/* LINEAR GRADIENT */
 @mixin gradient($fromColor, $toColor) {
     background-color: $toColor; /* Fallback Color */
     background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
@@ -30,15 +53,38 @@
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
 }
 
-/* Border Radius */
+/* BORDER RADIUS */
 @mixin radius($radius) {
     -webkit-border-radius: $radius;
     border-radius: $radius;
 }
 
-/* Hide Text */
+/* HIDE TEXT */
 @mixin hide-text {
     font: 0/0 a;
     text-shadow: none;
     color: transparent;
+}
+
+/* OPACITY */
+@mixin opacity($opacity: 0.5) {
+    filter:         alpha(opacity=($opacity * 100));
+    -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")";
+    -moz-opacity:   $opacity;
+    -khtml-opacity: $opacity;
+    opacity:        $opacity;
+}
+
+/* TEXT SHADOW */
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+    text-shadow: $x $y $blur $color;
+}
+
+/* TRANSITION */
+@mixin transition($what: all, $length: 1s, $easing: ease-in-out) {
+    -moz-transition:    $what $length $easing;
+    -o-transition:      $what $length $easing;
+    -webkit-transition: $what $length $easing;
+    -ms-transition:     $what $length $easing;
+    transition:         $what $length $easing;
 }
